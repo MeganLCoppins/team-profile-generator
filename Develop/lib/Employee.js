@@ -1,5 +1,5 @@
 // TODO: Write code to define and export the Employee class
-class Employee {
+module.exports = class Employee {
     constructor(name, id, email){
         this.name = name;
         this.id = id;
@@ -18,7 +18,4 @@ class Employee {
         return "Employee";
     }
 }
-const e = new Employee();
-
-
-module.exports = Employee;
+// const e = new Employee();
