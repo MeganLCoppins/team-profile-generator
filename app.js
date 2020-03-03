@@ -1,26 +1,23 @@
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
-const questions = require("./lib/questions")
+const questions = require("./lib/questions");
+const render = require("./lib/htmlRenderer");
+
 const inquirer = require("inquirer");
 const path = require("path");
 const fs = require("fs");
-
 const OUTPUT_DIR = path.resolve(__dirname, "output")
 const outputPath = path.join(OUTPUT_DIR, "team.html");
-
-const render = require("./lib/htmlRenderer");
+// empty array to push user input
 const employees = [];
 
-// console.log(new Manager("Lou", 1, "brent@u.com", 214));
-// console.log(new Engineer("Bob", 2, "Bob@2.com", "bobgit"));
-// console.log(new Intern("Ted", 3, "Ted@a.com", "UofA"));
-
+// prompt user input to create new manager and push into employees array
 (async function init(){
     try {
         const userManager = await inquirer.prompt([...questions.base, ...questions.manager]);
-        employees.push(userManager);
-        console.log(employees);
+        const manager = new Manager(userManager.name, userManager.id, userManager.email, userManager.officeNumber);
+        employees.push(manager);
 
         promptUser();
     } catch (err){
@@ -30,47 +27,34 @@ const employees = [];
 
 async function promptUser(){
     try{
+    // prompt user Input for which employee type to create
         const employeeType = await inquirer.prompt({
             type: "list",
             name: "role",
             message: "What type of employee would you like to add?",
             choices: ["Engineer", "Intern", "Done"]
         });
-
+    // if role chosen was engineer prompt user input to create engineer and push into employees array
         if(employeeType.role === "Engineer"){
             const typeEngineer = await inquirer.prompt([...questions.base, ...questions.engineer]);
-            employees.push(typeEngineer);
+            const engineer = new Engineer(typeEngineer.name, typeEngineer.id, typeEngineer.email, typeEngineer.github);
+            employees.push(engineer);
 
-            console.log(employees);
             promptUser();
+    // if role chosen was intern prompt user input to create intern and push into employees array
         }else if (employeeType.role === "Intern"){
             const typeIntern = await inquirer.prompt([...questions.base, ...questions.intern]);
-            employees.push(typeIntern);
+            const intern = new Intern(typeIntern.name, typeIntern.id, typeIntern.email, typeIntern.school);
+            employees.push(intern);
 
-            console.log(employees);
             promptUser();
+    // if done was selected render employees and write html file
         }else{
             const html = render(employees);
-            console.log(html);
+
+            fs.writeFile(outputPath, html, ()=>{});
         }
     } catch (err){
         console.log(err);
     }
 };
-
-// const html = render([
-//     new Manager();
-//     new Engineer();
-//     new Intern();
-// ])
-// fs.writeFile(outputPath, html, ()=>{});
-
-// After the user has input all employees desired, call the `render` function (required
-// above) and pass in an array containing all employee objects; the `render` function will
-// generate and return a block of HTML including templated divs for each employee!
-
-// After you have your html, you're now ready to create an HTML file using the HTML
-// returned from the `render` function. Now write it to a file named `team.html` in the
-// `output` folder. You can use the variable `outputPath` above target this location.
-// Hint: you may need to check if the `output` folder exists and create it if it
-// does not.
