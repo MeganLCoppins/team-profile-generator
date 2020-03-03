@@ -7,12 +7,16 @@ I built a Node CLI that takes in information about employees to create an engine
 
 The engineering team consists of a:
 * Manager
+
 * Engineer(s)
+
 * Intern(s)
 
 Each team member displays their:
 * Name
+
 * Role
+
 * ID
 
 * Role-specific property:
@@ -28,9 +32,10 @@ Once the user is done building the team an HTML file is created that displays th
 
 Below is a picture of the HTML created
 
-<img src="https://github.com/MeganLCoppins/team-profile-generator/blob/master/images/teamgenerator.png" alt="photo of HTML page">
+<img src="images/teamgenerator.png" alt="photo of HTML page">
 
 ## Author
 
 Megan Coppins
+
 https://meganlcoppins.github.io/team-profile-generator/
