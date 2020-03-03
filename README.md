@@ -28,9 +28,9 @@ Once the user is done building the team an HTML file is created that displays th
 
 Below is a picture of the HTML created
 
-<img src="/images/teamgenerator.png>" alt="photo of HTML page">
+<img src="https://github.com/MeganLCoppins/team-profile-generator/blob/master/images/teamgenerator.png" alt="photo of HTML page">
 
 ## Author
 
 Megan Coppins
-https://meganlcoppins.github.io/readme-generator/
+https://meganlcoppins.github.io/team-profile-generator/
