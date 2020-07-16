@@ -1,0 +1,15 @@
+.jumbotron {
+  background: darkseagreen;
+  color: white;
+  margin-bottom: 5% !important;
+}
+.card-header {
+  background: darkseagreen;
+  color: white;
+  text-align: center;
+}
+.employee-card {
+  width: 300px;
+  margin: 3%;
+  box-shadow: 2px 8px 8px 8px gray;
+}
