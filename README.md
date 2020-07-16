@@ -3,7 +3,7 @@
 
 ## Description
 
-I built a Node CLI that gathers employee information from user input and generates an HTML file displaying summaries for the engineering team created. 
+This is a Node CLI that gathers employee information from user input and generates an HTML file displaying summaries for the engineering team created. 
 
 The engineering team consists of a:
 * Manager
@@ -49,6 +49,8 @@ Example of HTML generated with the command line application.
 
 ## Technologies
 
+* HTML
+* CSS
 * Bootstrap
 * Javascript
 * Node.js
