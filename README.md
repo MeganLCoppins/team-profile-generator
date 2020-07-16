@@ -35,7 +35,7 @@ Once the user is done building the team an HTML file is created that displays th
 
 ## Usage
 
-To run the application the user must have Node.js installed on your machine.
+To run the application the user must have Node.js installed on their machine.
 
 * Clone this repository and download to your machine
 * From your terminal install the applications npm packages by running 'npm install'
